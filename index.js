@@ -1,10 +1,21 @@
+/* eslint-disable no-undef */
+import dotenv from 'dotenv'
+dotenv.config()
+console.log('SUPABASE_URL:', process.env.SUPABASE_URL);
 import express from 'express'
+import productRoutes from './interfaces/routes/product_routes.js'
 
 const app = express()
 
+
 app.use(express.json())
-app.get('/',(req,res)=>{
-    res.json({"res":"xd"})
+app.use('/products',productRoutes)
+
+app.get('/isLive',(req,res)=>{
+    res.json({"res":"YEAH"})
 })
 
-app.listen(1234,()=>console.log('ready'));
+const PORT = process.env.PORT || 3000
+
+
+app.listen(PORT,()=>console.log('ready'));

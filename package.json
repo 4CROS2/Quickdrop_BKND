@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+    "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
   },
   "type": "module",
   "keywords": [],
@@ -12,10 +14,15 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@supabase/supabase-js": "^2.45.4",
+    "dotenv": "^16.4.5",
     "express": "^4.21.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.12.0",
     "eslint": "^9.12.0",
-    "nodemon": "^3.1.7"
+    "globals": "^15.10.0",
+    "nodemon": "^3.1.7",
+    "prettier": "^3.3.3"
   }
 }
