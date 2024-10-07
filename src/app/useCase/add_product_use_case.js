@@ -1,4 +1,4 @@
-import Products from '../../domain/entities/products.js';
+const Products = require('../../domain/entities/products')
 
 class AddProduct {
     constructor(productRepository) {
@@ -17,4 +17,4 @@ class AddProduct {
     }
 }
 
-export default AddProduct;
+module.exports = AddProduct;
