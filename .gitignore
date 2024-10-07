@@ -3,7 +3,7 @@ node_modules/
 
 # Archivos de entorno
 .env
-
+firebase.json
 # Logs
 logs
 *.log
