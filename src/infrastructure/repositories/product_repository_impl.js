@@ -1,6 +1,6 @@
-import Products from '../../domain/entities/products.js';
-import ProductRepository from '../../domain/repositories/product_repository.js';
-import supabase from '../database/supabaseClient.js';
+const Products= require( '../../domain/entities/products');
+const ProductRepository= require( '../../domain/repositories/product_repository');
+const supabase= require( '../database/supabaseClient');
 
 class IProductRepository extends ProductRepository {
     async add(product) {
@@ -28,11 +28,12 @@ class IProductRepository extends ProductRepository {
         );
     }
     async getAll() {
-        const { data, error } = await supabase.from('product').select('*');
+        const { data, error } = await supabase.from('products').select('*').limit(5);
 
         if (error) {
             throw new Error(error.message);
         }
+    
         return data.map(
             (product) =>
                 new Products(
@@ -47,4 +48,4 @@ class IProductRepository extends ProductRepository {
     }
 }
 
-export default IProductRepository;
+module.exports = IProductRepository;

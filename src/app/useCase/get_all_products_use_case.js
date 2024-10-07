@@ -6,5 +6,4 @@ class GetProducts {
         return await this.productRepository.getAll();
     }
 }
-
-export default GetProducts;
+module.exports = GetProducts;

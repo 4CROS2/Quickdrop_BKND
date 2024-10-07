@@ -1,6 +1,6 @@
-import AddProduct from '../../app/useCase/add_product_use_case.js';
-import GetProducts from '../../app/useCase/get_all_products_use_case.js';
-import IProductRepository from '../repositories/product_repository_impl.js';
+const AddProduct = require('../../app/useCase/add_product_use_case.js') ;
+const GetProducts = require('../../app/useCase/get_all_products_use_case.js');
+const IProductRepository = require('../repositories/product_repository_impl.js');
 
 const addProductController = async (req, res) => {
     const product_repository = new IProductRepository();
@@ -20,9 +20,9 @@ const getAllProducts = async (req, res) => {
 
     try {
         const products = await getProducts.execute();
-        res.status(200).json(products);
+        res.status(200).json({products:products});
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
 };
-export { addProductController, getAllProducts };
+module.exports = { addProductController, getAllProducts };
