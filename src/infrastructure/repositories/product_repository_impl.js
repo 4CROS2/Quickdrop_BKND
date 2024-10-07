@@ -28,7 +28,7 @@ class IProductRepository extends ProductRepository {
         );
     }
     async getAll() {
-        const { data, error } = await supabase.from('products').select('*').limit(5);
+        const { data, error } = await supabase.from('products').select('*').limit(12);
 
         if (error) {
             throw new Error(error.message);
